@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Rafid's Gaming World</title>
+    <style>
+        /* --- STARFIELD BACKGROUND --- */
+        body {
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            color: #fff;
+            font-family: 'Verdana', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 2px);
+            background-size: 550px 550px, 350px 350px;
+            background-position: 0 0, 40px 60px;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        /* --- MENU --- */
+        #menu {
+            position: absolute;
+            z-index: 20;
+            background: rgba(9, 10, 15, 0.98);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        h1 a {
+            color: #00f0ff;
+            text-shadow: 0 0 8px #0077ff; 
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        h1 a:hover {
+            color: #fff;
+            text-shadow: 0 0 15px #00f0ff;
+            border-bottom: 2px solid #00f0ff;
+        }
+
+        .btn {
+            background: transparent;
+            color: #00f0ff;
+            border: 2px solid #00f0ff;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            margin: 15px;
+            cursor: pointer;
+            border-radius: 50px;
+            width: 80%;
+            font-weight: bold;
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.1); 
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .btn:active { 
+            background: #00f0ff; 
+            color: #000; 
+            box-shadow: 0 0 20px #00f0ff;
+        }
+
+        /* --- GAME UI --- */
+        #game-ui {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            justify-content: space-evenly;
+            padding: 10px 0;
+        }
+
+        #status {
+            font-size: 1.6rem;
+            color: #00f0ff;
+            text-shadow: 0 0 5px #0077ff;
+            font-weight: bold;
+            margin-bottom: 5px;
+            min-height: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- BOARD CONTAINER --- */
+        .board-container {
+            position: relative;
+            width: 95vw; 
+            height: 145vw; 
+            max-width: 600px;
+            max-height: 80vh; 
+            background: rgba(0, 0, 0, 0.3); 
+            border-radius: 20px;
+        }
+
+        svg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+        }
+        line {
+            stroke: #00f0ff; 
+            stroke-width: 6;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 3px #00aaaa); 
+            opacity: 0.9;
+        }
+
+        .points-layer {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+
+        .spot {
+            position: absolute;
+            width: 70px; height: 70px;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            z-index: 10;
+        }
+
+        .bead {
+            width: 32px; 
+            height: 32px;
+            border-radius: 50%;
+            z-index: 5;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .p1 { 
+            background: radial-gradient(circle at 35% 35%, #afffaf, #00bb00, #004400); 
+            box-shadow: 0 0 8px #00ff00, 0 0 15px rgba(0, 255, 0, 0.6);
+        }
+        
+        .p2 { 
+            background: radial-gradient(circle at 35% 35%, #ffafaf, #cc0000, #550000); 
+            box-shadow: 0 0 8px #ff0000, 0 0 15px rgba(255, 0, 0, 0.6);
+        }
+        
+        .selected .bead {
+            transform: scale(1.3);
+            border: 2px solid #fff;
+            box-shadow: 0 0 20px #ffffff;
+        }
+
+        .hint::after {
+            content: '';
+            width: 10px; height: 10px;
+            background: #00f0ff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #00f0ff;
+            opacity: 0.5;
+            animation: pulse 1.2s infinite alternate;
+        }
+        @keyframes pulse { from { opacity: 0.3; transform: scale(0.8); } to { opacity: 0.7; transform: scale(1.1); } }
+
+        /* --- CONTROLS (UPDATED FOR BETTER POSITION) --- */
+        #controls {
+            display: flex;
+            gap: 15px;
+            width: 95%;
+            justify-content: center;
+            margin-bottom: 25px; /* Pushes buttons UP from the bottom edge */
+        }
+        .small-btn {
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: 1px solid #444;
+            /* Smaller Padding */
+            padding: 10px 0;
+            width: 45%;
+            /* Smaller Font Size */
+            font-size: 0.9rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-restart { 
+            border-color: #00aa00; color: #00ff00; 
+            box-shadow: 0 0 5px rgba(0, 255, 0, 0.1);
+        }
+        .btn-restart:active { background: #00ff00; color: #000; }
+        
+        .btn-menu { 
+            border-color: #aa0000; color: #ff0000; 
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
+        }
+        .btn-menu:active { background: #ff0000; color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <div id="menu">
+        <h1>
+            <a href="https://rafidsite-jbgrmn2v.manus.space/" target="_blank">GAMING WORLD</a>
+        </h1>
+        <button class="btn" onclick="startGame('computer')">VS COMPUTER</button>
+        <button class="btn" onclick="startGame('friend')">VS FRIEND</button>
+    </div>
+
+    <div id="game-ui">
+        <div id="status">YOUR TURN</div>
+
+        <div class="board-container">
+            <svg>
+                <line x1="10%" y1="10%" x2="90%" y2="10%" />
+                <line x1="10%" y1="90%" x2="90%" y2="90%" />
+                <line x1="10%" y1="10%" x2="10%" y2="90%" />
+                <line x1="90%" y1="10%" x2="90%" y2="90%" />
+                
+                <line x1="10%" y1="10%" x2="90%" y2="90%" />
+                <line x1="90%" y1="10%" x2="10%" y2="90%" />
+                
+                <line x1="50%" y1="10%" x2="50%" y2="90%" />
+                <line x1="10%" y1="50%" x2="90%" y2="50%" />
+            </svg>
+
+            <div class="points-layer" id="grid"></div>
+        </div>
+
+        <div id="controls">
+            <button class="small-btn btn-menu" onclick="showMenu()">MENU</button>
+            <button class="small-btn btn-restart" onclick="restartGame()">RESTART</button>
+        </div>
+    </div>
+
+<script>
+    let mode = 'computer';
+    let board = [2, 2, 2, 0, 0, 0, 1, 1, 1]; 
+    let turn = 1; 
+    let selected = -1;
+    let gameOver = false;
+
+    const coords = [
+        {t: '10%', l: '10%'}, {t: '10%', l: '50%'}, {t: '10%', l: '90%'},
+        {t: '50%', l: '10%'}, {t: '50%', l: '50%'}, {t: '50%', l: '90%'},
+        {t: '90%', l: '10%'}, {t: '90%', l: '50%'}, {t: '90%', l: '90%'}
+    ];
+
+    const adj = {
+        0: [1, 3, 4], 1: [0, 2, 4], 2: [1, 5, 4],
+        3: [0, 4, 6], 4: [0, 1, 2, 3, 5, 6, 7, 8], 5: [2, 4, 8],
+        6: [3, 4, 7], 7: [6, 4, 8], 8: [4, 5, 7]
+    };
+    
+    const wins = [
+        [0,1,2], [3,4,5], [6,7,8], 
+        [0,3,6], [1,4,7], [2,5,8], 
+        [0,4,8], [2,4,6]
+    ];
+
+    const uiGrid = document.getElementById('grid');
+    const statusTxt = document.getElementById('status');
+    const menu = document.getElementById('menu');
+    const gameUI = document.getElementById('game-ui');
+
+    function initGrid() {
+        uiGrid.innerHTML = '';
+        for(let i=0; i<9; i++) {
+            let div = document.createElement('div');
+            div.className = 'spot';
+            div.style.top = coords[i].t;
+            div.style.left = coords[i].l;
+            div.onclick = () => handleInput(i);
+            div.innerHTML = `<div class="bead" id="b-${i}" style="display:none"></div>`;
+            uiGrid.appendChild(div);
+        }
+        render();
+    }
+
+    function showMenu() {
+        menu.style.display = 'flex';
+        gameUI.style.display = 'none';
+        gameOver = true;
+    }
+
+    function startGame(m) {
+        mode = m;
+        menu.style.display = 'none';
+        gameUI.style.display = 'flex';
+        initGrid();
+        restartGame();
+    }
+
+    function restartGame() {
+        board = [2, 2, 2, 0, 0, 0, 1, 1, 1];
+        
+        // Random Toss: 1=Green, 2=Red
+        turn = Math.random() < 0.5 ? 1 : 2; 
+
+        selected = -1;
+        gameOver = false;
+        render();
+        updateStatusTurn();
+
+        // If computer wins toss
+        if (mode === 'computer' && turn === 2) {
+            setTimeout(aiMove, 1000); 
+        }
+    }
+
+    function handleInput(i) {
+        if (gameOver) return;
+        if (mode === 'computer' && turn === 2) return; 
+
+        if (board[i] === turn) {
+            selected = i;
+            render();
+        }
+        else if (selected !== -1 && board[i] === 0) {
+            if (adj[selected].includes(i)) {
+                board[i] = turn;
+                board[selected] = 0;
+                selected = -1;
+                render();
+
+                if (checkWin(turn)) {
+                    endGame(turn);
+                    return;
+                }
+
+                turn = (turn === 1) ? 2 : 1;
+                updateStatusTurn();
+
+                if (mode === 'computer' && turn === 2) {
+                    setTimeout(aiMove, 700);
+                }
+            }
+        }
+    }
+
+    function checkWin(p) {
+        return wins.some(line => {
+            const hasLine = board[line[0]]===p && board[line[1]]===p && board[line[2]]===p;
+            if (hasLine) {
+                if (p === 1 && line[0] === 6 && line[1] === 7 && line[2] === 8) return false;
+                if (p === 2 && line[0] === 0 && line[1] === 1 && line[2] === 2) return false;
+                return true; 
+            }
+            return false;
+        });
+    }
+
+    function endGame(winner) {
+        gameOver = true;
+        let msg = "";
+        let color = winner === 1 ? "#00ff00" : "#ff0000";
+        if(mode === 'computer') {
+            msg = winner === 1 ? "YOU WON! 🎉" : "COMPUTER WON! 💀";
+        } else {
+            msg = winner === 1 ? "GREEN WON!" : "RED WON!";
+        }
+        statusTxt.innerHTML = `<span style="color:${color}; text-shadow: 0 0 15px ${color}">${msg}</span>`;
+    }
+
+    function updateStatusTurn() {
+        let color = turn === 1 ? "#00ff00" : "#ff0000";
+        statusTxt.style.color = color;
+        statusTxt.style.textShadow = `0 0 8px ${color}`;
+
+        if (mode === 'computer') {
+            updateStatus(turn === 1 ? "YOUR TURN" : "COMPUTER THINKING...");
+        } else {
+            updateStatus(turn === 1 ? "GREEN'S TURN" : "RED'S TURN");
+        }
+    }
+    
+    function updateStatus(t) { statusTxt.innerText = t; }
+
+    function render() {
+        for(let i=0; i<9; i++) {
+            let el = document.getElementById(`b-${i}`);
+            let spot = el.parentElement;
+            el.style.display = 'none';
+            el.className = 'bead';
+            spot.classList.remove('selected', 'hint');
+
+            if (board[i] !== 0) {
+                el.style.display = 'block';
+                el.classList.add(board[i] === 1 ? 'p1' : 'p2');
+            }
+            if (i === selected) spot.classList.add('selected');
+            if (selected !== -1 && board[i] === 0 && adj[selected].includes(i)) spot.classList.add('hint');
+        }
+    }
+
+    function aiMove() {
+        if (gameOver) return;
+
+        let pieces = [];
+        board.forEach((v, i) => { if(v===2) pieces.push(i) });
+
+        let moves = [];
+        pieces.forEach(from => {
+            adj[from].forEach(to => {
+                if(board[to] === 0) moves.push({from, to});
+            });
+        });
+
+        if (moves.length === 0) return; 
+
+        for (let m of moves) {
+            board[m.from] = 0; board[m.to] = 2;
+            if (checkWin(2)) {
+                render();
+                endGame(2);
+                return;
+            }
+            board[m.to] = 0; board[m.from] = 2; 
+        }
+
+        let move = moves[Math.floor(Math.random() * moves.length)];
+        board[move.from] = 0; board[move.to] = 2;
+        render();
+
+        if (checkWin(2)) {
+            endGame(2);
+        } else {
+            turn = 1;
+            updateStatusTurn();
+        }
+    }
+
+    initGrid();
+</script>
+</body>
+</html>
