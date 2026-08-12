@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bead-3-game.raxzen.in/sitemap.xml

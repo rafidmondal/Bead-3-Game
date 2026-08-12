@@ -1,477 +1,1073 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="google-site-verification" content="04Iccv3ZqlAfU3TeqdRVtJubMmkhUMxA2sDJNxoRLD8" />
-    <link rel="icon" href="favicon.png" type="image/png">
-    <title>Bead 3 Game - Online Traditional Board Game</title>
-<meta name="description" content="Play the classic Bead 3 game online. Challenge your brain with this traditional strategy board game. Free to play on any browser.">
-<meta name="keywords" content="Bead 3 Game, 3 Guti Game, Traditional Board Game, Strategy Game, Online Brain Game, Indian Board Games">
-    <style>
-        /* --- STARFIELD BACKGROUND --- */
-        body {
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            color: #fff;
-            font-family: 'Verdana', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            touch-action: none;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Bead 3 Game – Play 3 Guti Online | Three Guti Board Game</title>
+<meta name="description" content="Play Bead 3, the classic Three Guti strategy board game online. Challenge the computer or play with a friend on the same device in this free two-player game.">
+<link rel="canonical" href="https://bead-3-game.raxzen.in/">
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 2px);
-            background-size: 550px 550px, 350px 350px;
-            background-position: 0 0, 40px 60px;
-            opacity: 0.6;
-            z-index: -1;
-        }
+<!-- Icons -->
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#14100c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bead 3">
 
-        /* --- MENU --- */
-        #menu {
-            position: absolute;
-            z-index: 20;
-            background: rgba(9, 10, 15, 0.98);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bead 3 Game – Play Three Guti Online">
+<meta property="og:description" content="Play Bead 3 / Three Guti against the computer or a friend in your browser.">
+<meta property="og:url" content="https://bead-3-game.raxzen.in/">
+<meta property="og:image" content="https://bead-3-game.raxzen.in/favicon-192.png">
+<meta property="og:site_name" content="Bead 3 Game">
 
-        h1 {
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        h1 a {
-            color: #00f0ff;
-            text-shadow: 0 0 8px #0077ff; 
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.3s;
-            border-bottom: 2px solid transparent;
-        }
-        h1 a:hover {
-            color: #fff;
-            text-shadow: 0 0 15px #00f0ff;
-            border-bottom: 2px solid #00f0ff;
-        }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bead 3 Game – Play Three Guti Online">
+<meta name="twitter:description" content="Play the classic Bead 3 / Three Guti strategy game online.">
+<meta name="twitter:image" content="https://bead-3-game.raxzen.in/favicon-192.png">
 
-        .btn {
-            background: transparent;
-            color: #00f0ff;
-            border: 2px solid #00f0ff;
-            padding: 20px 40px;
-            font-size: 1.2rem;
-            margin: 15px;
-            cursor: pointer;
-            border-radius: 50px;
-            width: 80%;
-            font-weight: bold;
-            box-shadow: 0 0 8px rgba(0, 240, 255, 0.1); 
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-        .btn:active { 
-            background: #00f0ff; 
-            color: #000; 
-            box-shadow: 0 0 20px #00f0ff;
-        }
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Bead 3 Game",
+  "alternateName": "Three Guti",
+  "url": "https://bead-3-game.raxzen.in/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Bead 3 Game",
+  "alternateName": "Three Guti",
+  "url": "https://bead-3-game.raxzen.in/",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any",
+  "description": "Play Bead 3, the classic Three Guti strategy board game online. Challenge the computer or play with a friend on the same device.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
 
-        /* --- GAME UI --- */
-        #game-ui {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            justify-content: space-evenly;
-            padding: 10px 0;
-        }
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     Palette: Walnut wood board + brass inlay + ivory/onyx pieces.
+     A quiet, premium "tabletop" look instead of a neon theme.
+  ============================================================ */
+  :root{
+    --bg-deep:      #14100c;
+    --bg-panel:     #1d1712;
+    --wood-light:   #6b4a30;
+    --wood-mid:     #4a3120;
+    --wood-dark:    #2c1c12;
+    --brass:        #c9a24b;
+    --brass-soft:   #a9843b;
+    --ivory:        #f3ead9;
+    --ivory-dim:    #cabfa9;
+    --onyx:         #1a1a1a;
+    --text-main:    #efe6d6;
+    --text-dim:     #a89a80;
+    --danger:       #b3543f;
+    --success:      #5c8a5c;
+    --radius-lg:    28px;
+    --radius-md:    16px;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
+    --sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
-        #status {
-            font-size: 1.6rem;
-            color: #00f0ff;
-            text-shadow: 0 0 5px #0077ff;
-            font-weight: bold;
-            margin-bottom: 5px;
-            min-height: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 
-        /* --- BOARD CONTAINER --- */
-        .board-container {
-            position: relative;
-            width: 95vw; 
-            height: 145vw; 
-            max-width: 600px;
-            max-height: 80vh; 
-            background: rgba(0, 0, 0, 0.3); 
-            border-radius: 20px;
-        }
+  html,body{
+    margin:0; padding:0; min-height:100%;
+    background:
+      radial-gradient(1200px 800px at 50% -10%, #221a12 0%, var(--bg-deep) 55%),
+      var(--bg-deep);
+    color:var(--text-main);
+    font-family:var(--sans);
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-user-select:none; user-select:none;
+  }
 
-        svg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-        }
-        line {
-            stroke: #00f0ff; 
-            stroke-width: 6;
-            stroke-linecap: round;
-            filter: drop-shadow(0 0 3px #00aaaa); 
-            opacity: 0.9;
-        }
+  /* subtle vignette + grain for a premium tabletop atmosphere */
+  body::after{
+    content:'';
+    position:fixed; inset:0; pointer-events:none; z-index:50;
+    background:radial-gradient(1400px 900px at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%);
+  }
 
-        .points-layer {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-        }
+  /* Each screen fills at least one viewport height and sits in normal
+     document flow, so the ad section placed after it only becomes
+     visible once the user scrolls all the way down. */
+  .screen{
+    position:relative;
+    width:100%; min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .screen.hidden{ display:none; }
 
-        .spot {
-            position: absolute;
-            width: 70px; height: 70px;
-            transform: translate(-50%, -50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            z-index: 10;
-        }
+  /* ============================================================
+     PAGE 1 — MENU SCREEN
+  ============================================================ */
+  #menu-screen{ padding:24px; }
 
-        .bead {
-            width: 32px; 
-            height: 32px;
-            border-radius: 50%;
-            z-index: 5;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .p1 { 
-            background: radial-gradient(circle at 35% 35%, #afffaf, #00bb00, #004400); 
-            box-shadow: 0 0 8px #00ff00, 0 0 15px rgba(0, 255, 0, 0.6);
-        }
-        
-        .p2 { 
-            background: radial-gradient(circle at 35% 35%, #ffafaf, #cc0000, #550000); 
-            box-shadow: 0 0 8px #ff0000, 0 0 15px rgba(255, 0, 0, 0.6);
-        }
-        
-        .selected .bead {
-            transform: scale(1.3);
-            border: 2px solid #fff;
-            box-shadow: 0 0 20px #ffffff;
-        }
+  .brand{
+    text-align:center;
+    margin-bottom:56px;
+  }
+  .brand .eyebrow{
+    display:block;
+    font-size:.72rem;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:14px;
+    font-weight:600;
+  }
+  .brand h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:3rem;
+    margin:0;
+    color:var(--ivory);
+    letter-spacing:.02em;
+  }
+  .brand h1 span{ color:var(--brass); font-style:italic; }
+  .brand .sub{
+    margin-top:12px;
+    font-size:.85rem;
+    color:var(--text-dim);
+    letter-spacing:.04em;
+  }
 
-        .hint::after {
-            content: '';
-            width: 10px; height: 10px;
-            background: #00f0ff;
-            border-radius: 50%;
-            box-shadow: 0 0 5px #00f0ff;
-            opacity: 0.5;
-            animation: pulse 1.2s infinite alternate;
-        }
-        @keyframes pulse { from { opacity: 0.3; transform: scale(0.8); } to { opacity: 0.7; transform: scale(1.1); } }
+  .menu-actions{
+    display:flex; flex-direction:column; gap:16px;
+    width:100%; max-width:340px;
+  }
 
-        /* --- CONTROLS (UPDATED FOR BETTER POSITION) --- */
-        #controls {
-            display: flex;
-            gap: 15px;
-            width: 95%;
-            justify-content: center;
-            margin-bottom: 25px; /* Pushes buttons UP from the bottom edge */
-        }
-        .small-btn {
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            border: 1px solid #444;
-            /* Smaller Padding */
-            padding: 10px 0;
-            width: 45%;
-            /* Smaller Font Size */
-            font-size: 0.9rem;
-            border-radius: 30px;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn-restart { 
-            border-color: #00aa00; color: #00ff00; 
-            box-shadow: 0 0 5px rgba(0, 255, 0, 0.1);
-        }
-        .btn-restart:active { background: #00ff00; color: #000; }
-        
-        .btn-menu { 
-            border-color: #aa0000; color: #ff0000; 
-            box-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
-        }
-        .btn-menu:active { background: #ff0000; color: #000; }
+  .mode-card{
+    position:relative;
+    display:flex; align-items:center; gap:16px;
+    background:linear-gradient(180deg, #26201a, #1a1510);
+    border:1px solid rgba(201,162,75,0.25);
+    border-radius:var(--radius-md);
+    padding:18px 20px;
+    cursor:pointer;
+    transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    text-align:left;
+    font:inherit;
+    color:inherit;
+    width:100%;
+    -webkit-appearance:none; appearance:none;
+  }
+  .mode-card:active{ transform:scale(0.97); }
+  .mode-card:hover{ border-color:var(--brass); background:linear-gradient(180deg,#2c241c,#1d1712); }
 
-    </style>
+  .mode-icon{
+    flex:0 0 auto;
+    width:46px; height:46px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle at 32% 30%, #3a2f22, #171310);
+    border:1px solid rgba(201,162,75,0.3);
+  }
+  .mode-icon svg{ width:22px; height:22px; }
+
+  .mode-text strong{
+    display:block;
+    font-family:var(--serif);
+    font-size:1.08rem;
+    color:var(--ivory);
+    font-weight:600;
+  }
+  .mode-text span{
+    display:block;
+    font-size:.76rem;
+    color:var(--text-dim);
+    margin-top:2px;
+  }
+
+  .menu-footer{
+    margin-top:40px;
+    font-size:.68rem;
+    letter-spacing:.1em;
+    color:#655843;
+    text-transform:uppercase;
+  }
+  .menu-footer a{ color:var(--brass); text-decoration:none; }
+  .menu-footer a:hover{ text-decoration:underline; }
+
+  /* ============================================================
+     PAGE 2 — GAME SCREEN
+  ============================================================ */
+  #game-screen{ height:100vh; padding:8px 12px; justify-content:flex-start; gap:4px; }
+
+  .top-bar{
+    width:100%; max-width:520px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0;
+    margin-top:2px;
+  }
+  .icon-btn{
+    width:40px; height:40px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:.2s;
+    padding:0;
+    -webkit-appearance:none; appearance:none;
+  }
+  .icon-btn:active{ background:rgba(201,162,75,0.2); border-color:var(--brass); }
+  .icon-btn svg{ width:18px; height:18px; stroke:var(--text-main); }
+
+  .status-panel{
+    text-align:center;
+  }
+  .status-panel .turn-label{
+    font-size:.68rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .status-panel .turn-value{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    font-weight:600;
+    margin-top:2px;
+    color:var(--ivory);
+    transition:color .2s ease;
+  }
+
+  /* score pips: 3 dots per player showing beads remaining on board */
+  .score-row{
+    display:flex; align-items:center; gap:18px;
+    margin-top:8px;
+  }
+  .score-group{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .score-group .name{
+    font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-dim);
+  }
+  .score-dots{ display:flex; gap:5px; }
+  .score-dots i{
+    width:9px; height:9px; border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:block;
+  }
+  .score-dots i.p1-filled{ background:radial-gradient(circle at 35% 30%, var(--ivory), var(--ivory-dim)); }
+  .score-dots i.p2-filled{ background:radial-gradient(circle at 35% 30%, #3a3a3a, var(--onyx)); }
+
+  /* ---------------- BOARD ---------------- */
+  /* Outer wrap fills all remaining screen height (flex:1) so the
+     board uses the full phone screen. The wood slab fills this
+     wrap as a decorative backdrop; the actual grid (lines + pieces)
+     is a true square — sized by JS to the largest square that fits
+     — so every corner is a real, equal 90° corner, never stretched. */
+  .board-wrap{
+    position:relative;
+    flex:1;
+    width:100%;
+    max-width:640px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px 0;
+    min-height:0;
+  }
+
+  .board-slab{
+    position:absolute; inset:0 10px;
+    border-radius:22px;
+    background:
+      radial-gradient(120% 120% at 20% 10%, rgba(255,255,255,0.06), transparent 40%),
+      repeating-linear-gradient(115deg, var(--wood-light) 0 3px, var(--wood-mid) 3px 7px),
+      var(--wood-dark);
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.55),
+      inset 0 0 0 1px rgba(201,162,75,0.35),
+      inset 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .board-slab::before{
+    /* inner beveled frame */
+    content:'';
+    position:absolute; inset:14px;
+    border-radius:14px;
+    border:1px solid rgba(201,162,75,0.18);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.35);
+  }
+
+  /* True square — set to equal px width/height by JS (sizeBoard),
+     so it is always the largest perfect square that fits. */
+  .grid-square{
+    position:relative;
+    z-index:1;
+  }
+
+  svg.lines{
+    position:absolute; inset:0; width:100%; height:100%;
+    pointer-events:none;
+  }
+  svg.lines line{
+    stroke:var(--brass);
+    stroke-width:3;
+    stroke-linecap:round;
+    opacity:0.7;
+  }
+  svg.lines line.diag{ opacity:0.5; stroke-width:2.4; }
+
+  .points-layer{ position:absolute; inset:0; }
+
+  .spot{
+    position:absolute;
+    width:19%; height:19%;
+    transform:translate(-50%,-50%);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+
+  .spot .node{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--brass-soft);
+    box-shadow:0 0 0 3px rgba(0,0,0,0.25);
+  }
+
+  /* legal-move hint dot */
+  .spot.hint .node{
+    background:transparent;
+    width:16px; height:16px;
+    border:2px dashed rgba(243,234,217,0.55);
+    animation:hintPulse 1.4s ease-in-out infinite;
+  }
+  @keyframes hintPulse{
+    0%,100%{ transform:scale(0.9); opacity:0.5; }
+    50%{ transform:scale(1.05); opacity:0.95; }
+  }
+
+  /* ---------------- REAL PIECES (no neon glow) ---------------- */
+  /* Fixed vw-based sizing (not % of a non-square parent) keeps the
+     pieces perfectly circular even though the board itself is a
+     tall rectangle. Sized ~20% smaller than the original 68% fill. */
+  .bead{
+    position:absolute;
+    width:min(10vw, 66px); height:min(10vw, 66px);
+    border-radius:50%;
+    display:none;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+
+  /* Player 1 — polished ivory / pearl stone */
+  .bead.p1{
+    display:block;
+    background:
+      radial-gradient(circle at 32% 26%, #ffffff 0%, #efe4cd 28%, #cdbd9c 62%, #a3906a 100%);
+    box-shadow:
+      inset 0 -4px 6px rgba(90,70,40,0.45),
+      inset 0 3px 4px rgba(255,255,255,0.6),
+      0 4px 6px rgba(0,0,0,0.5);
+  }
+
+  /* Player 2 — polished onyx / dark stone */
+  .bead.p2{
+    display:block;
+    background:
+      radial-gradient(circle at 32% 26%, #6a6a6a 0%, #333333 32%, #141414 68%, #050505 100%);
+    box-shadow:
+      inset 0 -4px 6px rgba(0,0,0,0.6),
+      inset 0 3px 4px rgba(255,255,255,0.12),
+      0 4px 6px rgba(0,0,0,0.6);
+  }
+
+  .spot.selected .bead{
+    transform:scale(1.14) translateY(-3px);
+    box-shadow:
+      0 10px 16px rgba(0,0,0,0.55),
+      0 0 0 3px var(--brass);
+  }
+
+  /* ---------------- SHARED BUTTON STYLES (used in result overlay) ---------------- */
+  .btn{
+    flex:1;
+    padding:14px 0;
+    border-radius:14px;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:.2s;
+    font-family:var(--sans);
+  }
+  .btn-outline{
+    background:rgba(255,255,255,0.03);
+    border-color:rgba(255,255,255,0.12);
+    color:var(--text-main);
+  }
+  .btn-outline:active{ background:rgba(255,255,255,0.1); }
+  .btn-solid{
+    background:linear-gradient(180deg, var(--brass), var(--brass-soft));
+    color:#1a1510;
+  }
+  .btn-solid:active{ filter:brightness(0.92); }
+
+  /* ---------------- WIN OVERLAY ---------------- */
+  #result-overlay{
+    position:fixed; inset:0; z-index:60;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(10,8,6,0.72);
+    opacity:0; visibility:hidden;
+    transition:opacity .3s ease;
+  }
+  #result-overlay.show{ opacity:1; visibility:visible; }
+
+  .result-card{
+    background:linear-gradient(180deg,#241d16,#171310);
+    border:1px solid rgba(201,162,75,0.3);
+    border-radius:var(--radius-lg);
+    padding:36px 32px;
+    text-align:center;
+    width:min(85vw, 340px);
+    box-shadow:0 30px 60px rgba(0,0,0,0.6);
+    transform:translateY(10px) scale(0.96);
+    transition:transform .3s ease;
+  }
+  #result-overlay.show .result-card{ transform:translateY(0) scale(1); }
+
+  .result-piece{
+    width:56px; height:56px;
+    border-radius:50%;
+    margin:0 auto 18px;
+  }
+
+  .result-card h2{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    margin:0 0 6px;
+    color:var(--ivory);
+  }
+  .result-card p{
+    font-size:.82rem;
+    color:var(--text-dim);
+    margin:0 0 24px;
+  }
+  .result-actions{ display:flex; gap:10px; }
+
+  /* ---------------- INSTALL APP POPUP ---------------- */
+  #install-popup{
+    position:fixed; inset:0; z-index:70;
+    display:flex; align-items:flex-end; justify-content:center;
+    background:rgba(10,8,6,0.6);
+    opacity:0; visibility:hidden;
+    transition:opacity .3s ease;
+    padding:16px;
+  }
+  #install-popup.show{ opacity:1; visibility:visible; }
+
+  .install-card{
+    background:linear-gradient(180deg,#241d16,#171310);
+    border:1px solid rgba(201,162,75,0.3);
+    border-radius:var(--radius-lg);
+    padding:28px 26px;
+    text-align:center;
+    width:100%;
+    max-width:360px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.6);
+    transform:translateY(16px);
+    transition:transform .3s ease;
+  }
+  #install-popup.show .install-card{ transform:translateY(0); }
+
+  .install-icon{
+    width:60px; height:60px;
+    margin:0 auto 14px;
+    border-radius:16px;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(201,162,75,0.25);
+  }
+  .install-icon img{ width:44px; height:44px; display:block; border-radius:8px; }
+
+  .install-card h2{
+    font-family:var(--serif);
+    font-size:1.25rem;
+    margin:0 0 8px;
+    color:var(--ivory);
+  }
+  .install-card p{
+    font-size:.82rem;
+    color:var(--text-dim);
+    margin:0 0 22px;
+    line-height:1.5;
+  }
+  .install-actions{ display:flex; gap:10px; }
+
+  /* ---------------- AD SECTION (below the fold, requires scroll) ---------------- */
+  .ad-section{
+    width:100%;
+    min-height:120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 16px 40px;
+    background:var(--bg-panel);
+    border-top:1px solid rgba(201,162,75,0.15);
+  }
+  .ad-slot{
+    width:320px;
+    height:50px;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  /* ---------------- SEO CONTENT (visible, crawlable text) ---------------- */
+  .seo-content{
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    padding:32px 20px 60px;
+    color:var(--text-dim);
+    font-size:.92rem;
+    line-height:1.6;
+  }
+  .seo-content h2{
+    font-family:var(--serif);
+    color:var(--ivory);
+    font-size:1.4rem;
+    margin:0 0 12px;
+  }
+  .seo-content h3{
+    font-family:var(--serif);
+    color:var(--ivory);
+    font-size:1.05rem;
+    margin:24px 0 10px;
+  }
+  .seo-content p{ margin:0 0 12px; }
+  .seo-content ol,
+  .seo-content ul{ margin:0 0 12px; padding-left:20px; }
+  .seo-content li{ margin-bottom:6px; }
+  .seo-content a{ color:var(--brass); }
+
+  @media (min-width:600px){
+    .brand h1{ font-size:3.6rem; }
+  }
+</style>
 </head>
-<body>
+<body id="top">
 
-    <div id="menu">
-        <h1>
-            <a href="https://rafidsite-jbgrmn2v.manus.space/" target="_blank">GAMING WORLD</a>
-        </h1>
-        <button class="btn" onclick="startGame('computer')">VS COMPUTER</button>
-        <button class="btn" onclick="startGame('friend')">VS FRIEND</button>
+  <!-- ============================================================
+       PAGE 1 — MENU
+  ============================================================ -->
+  <div id="menu-screen" class="screen">
+    <div class="brand">
+      <span class="eyebrow">Traditional Strategy Board</span>
+      <h1>Bead <span>3</span></h1>
+      <div class="sub">Three Guti · Classic Edition</div>
     </div>
 
-    <div id="game-ui">
-        <div id="status">YOUR TURN</div>
-
-        <div class="board-container">
-            <svg>
-                <line x1="10%" y1="10%" x2="90%" y2="10%" />
-                <line x1="10%" y1="90%" x2="90%" y2="90%" />
-                <line x1="10%" y1="10%" x2="10%" y2="90%" />
-                <line x1="90%" y1="10%" x2="90%" y2="90%" />
-                
-                <line x1="10%" y1="10%" x2="90%" y2="90%" />
-                <line x1="90%" y1="10%" x2="10%" y2="90%" />
-                
-                <line x1="50%" y1="10%" x2="50%" y2="90%" />
-                <line x1="10%" y1="50%" x2="90%" y2="50%" />
-            </svg>
-
-            <div class="points-layer" id="grid"></div>
+    <div class="menu-actions">
+      <button type="button" class="mode-card" onclick="startGame('computer')">
+        <div class="mode-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.6">
+            <rect x="4" y="7" width="16" height="12" rx="2"/>
+            <path d="M9 3v4M15 3v4M8 12h.01M16 12h.01M9 16h6"/>
+          </svg>
         </div>
-
-        <div id="controls">
-            <button class="small-btn btn-menu" onclick="showMenu()">MENU</button>
-            <button class="small-btn btn-restart" onclick="restartGame()">RESTART</button>
+        <div class="mode-text">
+          <strong>Vs Computer</strong>
+          <span>Play against the AI opponent</span>
         </div>
+      </button>
+
+      <button type="button" class="mode-card" onclick="startGame('friend')">
+        <div class="mode-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.6">
+            <circle cx="8" cy="8" r="3"/>
+            <circle cx="16" cy="8" r="3"/>
+            <path d="M2 20c0-3 2.5-5 6-5s6 2 6 5M10 20c0-3 2.5-5 6-5s6 2 6 5"/>
+          </svg>
+        </div>
+        <div class="mode-text">
+          <strong>Vs Friend</strong>
+          <span>Two players, one device</span>
+        </div>
+      </button>
     </div>
+
+    <div class="menu-footer">Ivory vs Onyx · <a href="#how-to-play">How to Play</a></div>
+  </div>
+
+  <!-- ============================================================
+       PAGE 2 — GAME BOARD
+  ============================================================ -->
+  <div id="game-screen" class="screen hidden">
+
+    <div class="top-bar">
+      <button type="button" class="icon-btn" onclick="showMenu()" title="Menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <div class="status-panel">
+        <div class="turn-label">Current Turn</div>
+        <div class="turn-value" id="turn-value">—</div>
+      </div>
+
+      <button type="button" class="icon-btn" onclick="restartGame()" title="Restart" aria-label="Restart round">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3M4 14a8 8 0 0 0 14.9 3"/></svg>
+      </button>
+    </div>
+
+    <div class="score-row">
+      <div class="score-group">
+        <span class="name" id="p1-label">Ivory</span>
+        <div class="score-dots" id="p1-dots"></div>
+      </div>
+      <div class="score-group">
+        <span class="name" id="p2-label">Onyx</span>
+        <div class="score-dots" id="p2-dots"></div>
+      </div>
+    </div>
+
+    <div class="board-wrap">
+      <div class="board-slab"></div>
+
+      <div class="grid-square" id="grid-square">
+        <svg class="lines" viewBox="0 0 100 100">
+          <line x1="10" y1="10" x2="90" y2="10"/>
+          <line x1="10" y1="90" x2="90" y2="90"/>
+          <line x1="10" y1="10" x2="10" y2="90"/>
+          <line x1="90" y1="10" x2="90" y2="90"/>
+          <line class="diag" x1="10" y1="10" x2="90" y2="90"/>
+          <line class="diag" x1="90" y1="10" x2="10" y2="90"/>
+          <line x1="50" y1="10" x2="50" y2="90"/>
+          <line x1="10" y1="50" x2="90" y2="50"/>
+        </svg>
+
+        <div class="points-layer" id="grid"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       AD SECTION
+       Sits in normal document flow, right after the game screen
+       (which itself is a full 100vh block). Because of that, this
+       div starts exactly at the bottom edge of the screen and is
+       only revealed when the user scrolls down — never visible
+       on first load.
+  ============================================================ -->
+  <div class="ad-section">
+    <div class="ad-slot" id="ad-slot">
+      <script>
+        atOptions = {
+          'key' : '1997c0975367797e0342abb160414fd6',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/1997c0975367797e0342abb160414fd6/invoke.js"></script>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SEO CONTENT — visible, crawlable text describing the game.
+       Sits below the game/ad sections in normal document flow.
+  ============================================================ -->
+  <section class="seo-content" id="how-to-play">
+    <h2>Bead 3 – Three Guti Game</h2>
+    <p>Bead 3, also known as Three Guti or Three Bead, is a two-player traditional strategy board game. Move your three pieces across the board and create a winning line before your opponent.</p>
+
+    <h3>How to Play Bead 3</h3>
+    <ol>
+      <li>Choose <strong>Vs Computer</strong> to play against the AI.</li>
+      <li>Choose <strong>Vs Friend</strong> for two players on one device.</li>
+      <li>Select a piece to see its available moves.</li>
+      <li>Move your piece to a connected empty point.</li>
+      <li>Line up three pieces in a row to win the round.</li>
+    </ol>
+
+    <h3>Game Features</h3>
+    <ul>
+      <li>Free to play</li>
+      <li>Play against the computer</li>
+      <li>Two-player local mode</li>
+      <li>No installation required</li>
+      <li>Mobile-friendly</li>
+      <li>Works in any web browser</li>
+    </ul>
+
+    <p><a href="#top">Play Bead 3 online</a></p>
+  </section>
+
+  <!-- Win / Result overlay -->
+  <div id="result-overlay">
+    <div class="result-card">
+      <div class="result-piece" id="result-piece"></div>
+      <h2 id="result-title">—</h2>
+      <p id="result-sub">—</p>
+      <div class="result-actions">
+        <button class="btn btn-outline" onclick="showMenu()">Menu</button>
+        <button class="btn btn-solid" onclick="closeResultAndRestart()">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Install App popup — shown once when the browser offers PWA install -->
+  <div id="install-popup">
+    <div class="install-card">
+      <div class="install-icon">
+        <img src="favicon-192.png" width="44" height="44" alt="Bead 3 app icon">
+      </div>
+      <h2>Install Bead 3</h2>
+      <p>Add Bead 3 to your home screen for a full-screen, app-like experience — no browser bar, quick launch anytime.</p>
+      <div class="install-actions">
+        <button class="btn btn-outline" onclick="dismissInstallPopup()">Skip</button>
+        <button class="btn btn-solid" onclick="triggerInstall()">Install</button>
+      </div>
+    </div>
+  </div>
 
 <script>
-    let mode = 'computer';
-    let board = [2, 2, 2, 0, 0, 0, 1, 1, 1]; 
-    let turn = 1; 
-    let selected = -1;
-    let gameOver = false;
+/* ==================================================================
+   BEAD 3 — GAME LOGIC
+   Board layout (index 0-8):
+     0 - 1 - 2
+     |   |   |
+     3 - 4 - 5
+     |   |   |
+     6 - 7 - 8
+   Player 1 = Ivory, starts on bottom row (6,7,8)
+   Player 2 = Onyx,  starts on top row    (0,1,2)
+   Pieces slide to an adjacent empty point (center connects to all).
+   First to align 3 own pieces on a line wins — except each player's
+   own starting row does not count as a win for them.
+================================================================== */
 
-    const coords = [
-        {t: '10%', l: '10%'}, {t: '10%', l: '50%'}, {t: '10%', l: '90%'},
-        {t: '50%', l: '10%'}, {t: '50%', l: '50%'}, {t: '50%', l: '90%'},
-        {t: '90%', l: '10%'}, {t: '90%', l: '50%'}, {t: '90%', l: '90%'}
-    ];
+let mode = 'computer';          // 'computer' | 'friend'
+let board = [2,2,2, 0,0,0, 1,1,1];
+let turn = 1;                    // 1 = Ivory, 2 = Onyx
+let selected = -1;
+let gameOver = false;
 
-    const adj = {
-        0: [1, 3, 4], 1: [0, 2, 4], 2: [1, 5, 4],
-        3: [0, 4, 6], 4: [0, 1, 2, 3, 5, 6, 7, 8], 5: [2, 4, 8],
-        6: [3, 4, 7], 7: [6, 4, 8], 8: [4, 5, 7]
-    };
-    
-    const wins = [
-        [0,1,2], [3,4,5], [6,7,8], 
-        [0,3,6], [1,4,7], [2,5,8], 
-        [0,4,8], [2,4,6]
-    ];
+const ADJ = {
+  0:[1,3,4], 1:[0,2,4], 2:[1,4,5],
+  3:[0,4,6], 4:[0,1,2,3,5,6,7,8], 5:[2,4,8],
+  6:[3,4,7], 7:[4,6,8], 8:[4,5,7]
+};
 
-    const uiGrid = document.getElementById('grid');
-    const statusTxt = document.getElementById('status');
-    const menu = document.getElementById('menu');
-    const gameUI = document.getElementById('game-ui');
+const WIN_LINES = [
+  [0,1,2],[3,4,5],[6,7,8],
+  [0,3,6],[1,4,7],[2,5,8],
+  [0,4,8],[2,4,6]
+];
 
-    function initGrid() {
-        uiGrid.innerHTML = '';
-        for(let i=0; i<9; i++) {
-            let div = document.createElement('div');
-            div.className = 'spot';
-            div.style.top = coords[i].t;
-            div.style.left = coords[i].l;
-            div.onclick = () => handleInput(i);
-            div.innerHTML = `<div class="bead" id="b-${i}" style="display:none"></div>`;
-            uiGrid.appendChild(div);
-        }
-        render();
+const COORDS = [
+  {t:10,l:10},{t:10,l:50},{t:10,l:90},
+  {t:50,l:10},{t:50,l:50},{t:50,l:90},
+  {t:90,l:10},{t:90,l:50},{t:90,l:90}
+];
+
+// ---------- DOM refs ----------
+const menuScreen   = document.getElementById('menu-screen');
+const gameScreen   = document.getElementById('game-screen');
+const grid         = document.getElementById('grid');
+const turnValue    = document.getElementById('turn-value');
+const p1Dots       = document.getElementById('p1-dots');
+const p2Dots       = document.getElementById('p2-dots');
+const p1Label      = document.getElementById('p1-label');
+const p2Label      = document.getElementById('p2-label');
+const resultOverlay= document.getElementById('result-overlay');
+const resultTitle  = document.getElementById('result-title');
+const resultSub    = document.getElementById('result-sub');
+const resultPiece  = document.getElementById('result-piece');
+
+// ---------- Screen navigation ----------
+function showMenu(){
+  menuScreen.classList.remove('hidden');
+  gameScreen.classList.add('hidden');
+  resultOverlay.classList.remove('show');
+  gameOver = true;
+}
+
+function startGame(selectedMode){
+  mode = selectedMode;
+  menuScreen.classList.add('hidden');
+  gameScreen.classList.remove('hidden');
+
+  p1Label.textContent = 'Ivory';
+  p2Label.textContent = mode === 'computer' ? 'Computer' : 'Onyx';
+
+  buildGrid();
+  restartGame();
+  sizeBoard();
+}
+
+// ---------- Build board points once ----------
+function buildGrid(){
+  grid.innerHTML = '';
+  for(let i=0;i<9;i++){
+    const spot = document.createElement('div');
+    spot.className = 'spot';
+    spot.style.top  = COORDS[i].t + '%';
+    spot.style.left = COORDS[i].l + '%';
+    spot.onclick = () => handleTap(i);
+
+    const node = document.createElement('div');
+    node.className = 'node';
+    node.id = 'node-' + i;
+
+    const bead = document.createElement('div');
+    bead.className = 'bead';
+    bead.id = 'bead-' + i;
+
+    spot.appendChild(node);
+    spot.appendChild(bead);
+    grid.appendChild(spot);
+  }
+}
+
+// ---------- Round setup ----------
+function restartGame(){
+  board = [2,2,2, 0,0,0, 1,1,1];
+  turn = Math.random() < 0.5 ? 1 : 2;   // random coin toss for first move
+  selected = -1;
+  gameOver = false;
+
+  resultOverlay.classList.remove('show');
+  render();
+  updateTurnDisplay();
+
+  if(mode === 'computer' && turn === 2){
+    setTimeout(computerMove, 700);
+  }
+}
+
+// ---------- Input handling ----------
+function handleTap(i){
+  if(gameOver) return;
+  if(mode === 'computer' && turn === 2) return; // computer's turn, ignore taps
+
+  if(board[i] === turn){
+    selected = i;
+    render();
+    return;
+  }
+
+  if(selected !== -1 && board[i] === 0 && ADJ[selected].includes(i)){
+    movePiece(selected, i, turn);
+  }
+}
+
+function movePiece(from, to, player){
+  board[to] = player;
+  board[from] = 0;
+  selected = -1;
+  render();
+
+  if(checkWin(player)){
+    endGame(player);
+    return;
+  }
+
+  turn = (player === 1) ? 2 : 1;
+  updateTurnDisplay();
+
+  if(mode === 'computer' && turn === 2){
+    setTimeout(computerMove, 650);
+  }
+}
+
+// ---------- Win detection ----------
+function checkWin(player){
+  return WIN_LINES.some(line => {
+    const isLine = line.every(idx => board[idx] === player);
+    if(!isLine) return false;
+    // A player's own starting row never counts as a win for them
+    if(player === 1 && line[0] === 6) return false; // bottom row
+    if(player === 2 && line[0] === 0) return false; // top row
+    return true;
+  });
+}
+
+// ---------- Simple AI: win now if possible, else random legal move ----------
+function computerMove(){
+  if(gameOver) return;
+
+  const myPieces = [];
+  board.forEach((v,i) => { if(v === 2) myPieces.push(i); });
+
+  const legalMoves = [];
+  myPieces.forEach(from => {
+    ADJ[from].forEach(to => {
+      if(board[to] === 0) legalMoves.push({from, to});
+    });
+  });
+
+  if(legalMoves.length === 0) return;
+
+  // Prefer a move that wins immediately
+  for(const m of legalMoves){
+    board[m.to] = 2; board[m.from] = 0;
+    if(checkWin(2)){
+      render();
+      endGame(2);
+      return;
     }
+    board[m.from] = 2; board[m.to] = 0; // undo trial
+  }
 
-    function showMenu() {
-        menu.style.display = 'flex';
-        gameUI.style.display = 'none';
-        gameOver = true;
+  const choice = legalMoves[Math.floor(Math.random() * legalMoves.length)];
+  board[choice.to] = 2;
+  board[choice.from] = 0;
+  render();
+
+  if(checkWin(2)){
+    endGame(2);
+  } else {
+    turn = 1;
+    updateTurnDisplay();
+  }
+}
+
+// ---------- Rendering ----------
+function render(){
+  for(let i=0;i<9;i++){
+    const bead = document.getElementById('bead-' + i);
+    const spot = bead.parentElement;
+    const node = document.getElementById('node-' + i);
+
+    bead.className = 'bead';
+    spot.classList.remove('selected','hint');
+    node.style.display = 'block';
+
+    if(board[i] !== 0){
+      bead.classList.add(board[i] === 1 ? 'p1' : 'p2');
+      node.style.display = 'none';
     }
-
-    function startGame(m) {
-        mode = m;
-        menu.style.display = 'none';
-        gameUI.style.display = 'flex';
-        initGrid();
-        restartGame();
+    if(i === selected) spot.classList.add('selected');
+    if(selected !== -1 && board[i] === 0 && ADJ[selected].includes(i)){
+      spot.classList.add('hint');
     }
+  }
+  updateScoreDots();
+}
 
-    function restartGame() {
-        board = [2, 2, 2, 0, 0, 0, 1, 1, 1];
-        
-        // Random Toss: 1=Green, 2=Red
-        turn = Math.random() < 0.5 ? 1 : 2; 
+function updateScoreDots(){
+  const p1Count = board.filter(v => v === 1).length;
+  const p2Count = board.filter(v => v === 2).length;
+  p1Dots.innerHTML = Array.from({length:3}, (_,i) => `<i class="${i < p1Count ? 'p1-filled' : ''}"></i>`).join('');
+  p2Dots.innerHTML = Array.from({length:3}, (_,i) => `<i class="${i < p2Count ? 'p2-filled' : ''}"></i>`).join('');
+}
 
-        selected = -1;
-        gameOver = false;
-        render();
-        updateStatusTurn();
+function updateTurnDisplay(){
+  if(mode === 'computer'){
+    turnValue.textContent = turn === 1 ? 'Your Move' : 'Computer Thinking…';
+  } else {
+    turnValue.textContent = turn === 1 ? "Ivory's Move" : "Onyx's Move";
+  }
+  turnValue.style.color = turn === 1 ? 'var(--ivory)' : '#d9d3c6';
+}
 
-        // If computer wins toss
-        if (mode === 'computer' && turn === 2) {
-            setTimeout(aiMove, 1000); 
-        }
-    }
+// ---------- End of round ----------
+function endGame(winner){
+  gameOver = true;
 
-    function handleInput(i) {
-        if (gameOver) return;
-        if (mode === 'computer' && turn === 2) return; 
+  let title, subtitle;
+  if(mode === 'computer'){
+    title = winner === 1 ? 'You Win' : 'Computer Wins';
+    subtitle = winner === 1 ? 'A clean line, well played.' : 'The computer completed a line first.';
+  } else {
+    title = winner === 1 ? 'Ivory Wins' : 'Onyx Wins';
+    subtitle = 'Three in a row — round complete.';
+  }
 
-        if (board[i] === turn) {
-            selected = i;
-            render();
-        }
-        else if (selected !== -1 && board[i] === 0) {
-            if (adj[selected].includes(i)) {
-                board[i] = turn;
-                board[selected] = 0;
-                selected = -1;
-                render();
+  resultTitle.textContent = title;
+  resultSub.textContent = subtitle;
+  resultPiece.className = 'result-piece ' + (winner === 1 ? 'bead p1' : 'bead p2');
+  resultPiece.style.display = 'block';
+  resultPiece.style.position = 'relative';
 
-                if (checkWin(turn)) {
-                    endGame(turn);
-                    return;
-                }
+  resultOverlay.classList.add('show');
+}
 
-                turn = (turn === 1) ? 2 : 1;
-                updateStatusTurn();
+function closeResultAndRestart(){
+  resultOverlay.classList.remove('show');
+  restartGame();
+}
 
-                if (mode === 'computer' && turn === 2) {
-                    setTimeout(aiMove, 700);
-                }
-            }
-        }
-    }
+// ---------- Keep the board a true square (largest that fits) ----------
+function sizeBoard(){
+  const wrap = document.querySelector('.board-wrap');
+  const square = document.getElementById('grid-square');
+  if(!wrap || !square) return;
+  const rect = wrap.getBoundingClientRect();
+  const available = Math.max(0, Math.min(rect.width, rect.height) - 20);
+  const size = Math.max(200, available);
+  square.style.width = size + 'px';
+  square.style.height = size + 'px';
+}
+window.addEventListener('resize', sizeBoard);
+window.addEventListener('orientationchange', sizeBoard);
 
-    function checkWin(p) {
-        return wins.some(line => {
-            const hasLine = board[line[0]]===p && board[line[1]]===p && board[line[2]]===p;
-            if (hasLine) {
-                if (p === 1 && line[0] === 6 && line[1] === 7 && line[2] === 8) return false;
-                if (p === 2 && line[0] === 0 && line[1] === 1 && line[2] === 2) return false;
-                return true; 
-            }
-            return false;
-        });
-    }
+// ---------- PWA: Install App popup ----------
+let deferredInstallPrompt = null;
+const installPopup = document.getElementById('install-popup');
 
-    function endGame(winner) {
-        gameOver = true;
-        let msg = "";
-        let color = winner === 1 ? "#00ff00" : "#ff0000";
-        if(mode === 'computer') {
-            msg = winner === 1 ? "YOU WON! 🎉" : "COMPUTER WON! 💀";
-        } else {
-            msg = winner === 1 ? "GREEN WON!" : "RED WON!";
-        }
-        statusTxt.innerHTML = `<span style="color:${color}; text-shadow: 0 0 15px ${color}">${msg}</span>`;
-    }
+// Browser fires this when the app qualifies for installation.
+// We prevent the default mini-banner and show our own themed popup.
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  installPopup.classList.add('show');
+});
 
-    function updateStatusTurn() {
-        let color = turn === 1 ? "#00ff00" : "#ff0000";
-        statusTxt.style.color = color;
-        statusTxt.style.textShadow = `0 0 8px ${color}`;
+function dismissInstallPopup(){
+  installPopup.classList.remove('show');
+}
 
-        if (mode === 'computer') {
-            updateStatus(turn === 1 ? "YOUR TURN" : "COMPUTER THINKING...");
-        } else {
-            updateStatus(turn === 1 ? "GREEN'S TURN" : "RED'S TURN");
-        }
-    }
-    
-    function updateStatus(t) { statusTxt.innerText = t; }
+function triggerInstall(){
+  installPopup.classList.remove('show');
+  if(!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  deferredInstallPrompt.userChoice.finally(() => {
+    deferredInstallPrompt = null;
+  });
+}
 
-    function render() {
-        for(let i=0; i<9; i++) {
-            let el = document.getElementById(`b-${i}`);
-            let spot = el.parentElement;
-            el.style.display = 'none';
-            el.className = 'bead';
-            spot.classList.remove('selected', 'hint');
+// Hide the popup automatically once the app is installed.
+window.addEventListener('appinstalled', () => {
+  installPopup.classList.remove('show');
+  deferredInstallPrompt = null;
+});
 
-            if (board[i] !== 0) {
-                el.style.display = 'block';
-                el.classList.add(board[i] === 1 ? 'p1' : 'p2');
-            }
-            if (i === selected) spot.classList.add('selected');
-            if (selected !== -1 && board[i] === 0 && adj[selected].includes(i)) spot.classList.add('hint');
-        }
-    }
+// Register the service worker (enables installability + offline).
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
 
-    function aiMove() {
-        if (gameOver) return;
-
-        let pieces = [];
-        board.forEach((v, i) => { if(v===2) pieces.push(i) });
-
-        let moves = [];
-        pieces.forEach(from => {
-            adj[from].forEach(to => {
-                if(board[to] === 0) moves.push({from, to});
-            });
-        });
-
-        if (moves.length === 0) return; 
-
-        for (let m of moves) {
-            board[m.from] = 0; board[m.to] = 2;
-            if (checkWin(2)) {
-                render();
-                endGame(2);
-                return;
-            }
-            board[m.to] = 0; board[m.from] = 2; 
-        }
-
-        let move = moves[Math.floor(Math.random() * moves.length)];
-        board[move.from] = 0; board[move.to] = 2;
-        render();
-
-        if (checkWin(2)) {
-            endGame(2);
-        } else {
-            turn = 1;
-            updateStatusTurn();
-        }
-    }
-
-    initGrid();
+// ---------- Boot ----------
+buildGrid();
+sizeBoard();
 </script>
-    <script>
-  atOptions = {
-    'key' : 'a33ff4cea84d4ce3de282607cecce701',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/a33ff4cea84d4ce3de282607cecce701/invoke.js"></script>
 </body>
 </html>
